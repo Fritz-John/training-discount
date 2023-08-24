@@ -26,6 +26,10 @@ export default function App() {
                   label: t("NavigationMenu.pageName"),
                   destination: "/pagename",
                 },
+                {
+                  label: t("Create Discount"),
+                  destination: "/create-discount",
+                },
               ]}
             />
             <Routes pages={pages} />

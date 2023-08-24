@@ -32,6 +32,8 @@ app.post(
   shopify.processWebhooks({ webhookHandlers: GDPRWebhookHandlers })
 );
 
+
+
 // If you are adding routes outside of the /api path, remember to
 // also add a proxy rule for them in web/frontend/vite.config.js
 
@@ -44,6 +46,21 @@ app.get("/api/products/count", async (_req, res) => {
     session: res.locals.shopify.session,
   });
   res.status(200).send(countData);
+});
+
+app.get("/api/collections/446628561203", async(req,res) => {
+
+  try{
+    const response = await shopify.api.rest.Collection.find({
+      session: res.locals.shopify.session,
+      id:446628561203,
+    });
+
+    res.status(200).send(response);
+  }catch(err){
+    res.status(500).send(err);
+  }
+
 });
 
 app.get("/api/products/create", async (_req, res) => {

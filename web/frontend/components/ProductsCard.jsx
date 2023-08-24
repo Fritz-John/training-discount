@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, TextContainer, Text } from "@shopify/polaris";
 import { Toast } from "@shopify/app-bridge-react";
 import { useTranslation } from "react-i18next";
@@ -49,7 +49,20 @@ export function ProductsCard() {
       });
     }
   };
+  const fetchCollection = async() => {
 
+    try{
+      const response = await fetch("/api/collections/446628561203");
+      console.log(await response.json());
+    }
+    catch(err){
+      console.log(err);
+    }
+    
+      }
+      fetchCollection();
+ 
+  
   return (
     <>
       {toastMarkup}
@@ -69,7 +82,9 @@ export function ProductsCard() {
           <Text as="h4" variant="headingMd">
             {t("ProductsCard.totalProductsHeading")}
             <Text variant="bodyMd" as="p" fontWeight="semibold">
+              
               {isLoadingCount ? "-" : data.count}
+             
             </Text>
           </Text>
         </TextContainer>
