@@ -8,9 +8,11 @@ import { useAppQuery, useAuthenticatedFetch } from "../hooks";
 
 const CreateDiscount = () => {
   const [products] = useState([
-    { id: 1, title: 'Dummy Product 1', price: '$10.99', discount: 0 },
-    { id: 2, title: 'Dummy Product 2', price: '$19.99', discount: 0 },
-    { id: 3, title: 'Dummy Product 3', price: '$5.99', discount: 0 },
+    { id: 1, title: 'Item 1', price: '150.00 PHP', discount: 0 },
+    { id: 2, title: 'Item 2', price: '500.00 PHP', discount: 0 },
+    { id: 3, title: 'Item 3', price: '900.00 PHP', discount: 0 },
+    { id: 4, title: 'Item 5', price: '1200.00 PHP', discount: 0 },
+    { id: 4, title: 'Item 5', price: '1,500.00 PHP', discount: 0 },
   ]);
   const fetch = useAuthenticatedFetch();
   const fetchCollection = async() => {
@@ -53,7 +55,7 @@ catch(err){
   };
 
   const calculateDiscountedPrice = (price, discount) => {
-    const originalPrice = parseFloat(price.replace('$', ''));
+    const originalPrice = parseFloat(price.replace('₱', ''));
     const discountAmount = originalPrice * (discount / 100);
     const discountedPrice = originalPrice - discountAmount;
     return discountedPrice.toFixed(2);
@@ -90,10 +92,10 @@ catch(err){
                               {price}
                             </div>
                             {showDiscountedPrice && (
-                              <div style={{ marginLeft: '10px', fontSize: '0.9em' }}>{`$${discountedPrice}`}</div>
+                              <div style={{ marginLeft: '10px', fontSize: '0.9em' }}>{`₱${discountedPrice}`}</div>
                             )}
                             {showAdditionalDiscountedPrice && (
-                              <div style={{ marginLeft: '10px', fontSize: '0.9em' }}>{`$${additionalDiscountedPrice}`}</div>
+                              <div style={{ marginLeft: '10px', fontSize: '0.9em' }}>{`₱${additionalDiscountedPrice}`}</div>
                             )}
                           </div>
                         </LegacyStack.Item>

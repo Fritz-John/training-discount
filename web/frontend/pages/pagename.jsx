@@ -7,14 +7,14 @@ export default function PageName() {
   return (
     <Page>
       <TitleBar
-        title={t("PageName.title")}
+        title={t("Shopify")}
         primaryAction={{
-          content: t("PageName.primaryAction"),
+          content: t("Logout"),
           onAction: () => console.log("Primary action"),
         }}
         secondaryActions={[
           {
-            content: t("PageName.secondaryAction"),
+            content: t("Checkout"),
             onAction: () => console.log("Secondary action"),
           },
         ]}
@@ -24,7 +24,7 @@ export default function PageName() {
         <Layout.Section>
           <Card sectioned>
             <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
+              {t("Home Page")}
             </Text>
             <TextContainer>
               <p>{t("PageName.body")}</p>
@@ -32,20 +32,20 @@ export default function PageName() {
           </Card>
           <Card sectioned>
             <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
+              {t("Active Deals")}
             </Text>
             <TextContainer>
-              <p>{t("PageName.body")}</p>
+              <p>{t("Click Here")}</p>
             </TextContainer>
           </Card>
         </Layout.Section>
         <Layout.Section secondary>
           <Card sectioned>
             <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
+              {t("Collections")}
             </Text>
             <TextContainer>
-              <p>{t("PageName.body")}</p>
+              <p>{t("Items")}</p>
             </TextContainer>
           </Card>
         </Layout.Section>
